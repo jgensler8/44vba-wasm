@@ -1,1 +1,0 @@
-%IDF_PATH%\components\partition_table\parttool.py write_partition --input %1 --partition-name "rom"

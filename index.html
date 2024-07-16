@@ -62,8 +62,8 @@
 
 
         .vk {
-            color: rgba(0, 0, 0, 0.2);
-            background-color: rgba(255, 255, 255, 0.25);
+            color: rgba(20, 74, 74, 0.2);
+            background-color: rgba(20, 74, 74, 1);
             position: absolute;
             z-index: 1;
             text-align: center;
@@ -80,7 +80,7 @@
         }
 
         .menu {
-            background: rgb(32, 43, 56);
+            background: rgb(20, 74, 74, 1);
             position: absolute;
             left: 0;
             top: 0;
@@ -92,6 +92,7 @@
         #gba-canvas {
             position: absolute;
             z-index: -1;
+            image-rendering: pixelated;
         }
 
         #vk-layer {
@@ -113,7 +114,7 @@
             z-index: 2;
         }
     </style>
-    <div id="pause-menu" class="menu" style="background: rgba(32,43,56,0.7);" hidden>
+    <div id="pause-menu" class="menu" style="background: rgba(20, 74, 74, 0.7);" hidden>
         <button onclick="setPauseMenu(false)"> ← Back </button>
         <hr>
         Savegame management:<br>
@@ -129,28 +130,7 @@
         </select><br>
         <textarea id="txt-code" style="width:100%" rows="10"></textarea>
     </div>
-    <div id="welcome" class="menu">
-        <h1>44GBA</h1>
-        <hr>
-        <div id="wasm-loading">
-            Loading, please wait...
-        </div>
-        <div id="select-rom" hidden>
-            <input type="file" id="romFile" onchange="onFileSelected()" hidden /></p>
-            <button onclick="$id('romFile').click()" id="btn-choose">Choose File...</button>
-        </div>
-        <hr>
-        Ver. 20220723 | <a href="https://github.com/44670/44gba">GitHub</a>
-        <p>
-            This software should not be used to play games you have not legally obtained.<br>
-            "GBA" is a trademark of Nintendo Co.,Ltd, This site is not associated with Nintendo in any way.
-        </p>
-        <div id="ios-hint" hidden>
-            Due to iOS limitations, please open this site(https://gba.44670.org) in <b>Safari</b>, and add it to your
-            <b>Home Screen</b> by <b>Share Menu</b> to continue.
-            <p style="text-align: center;">⬇⬇⬇</p>
-        </div>
-    </div>
+    <div id="welcome" class="menu">loading</div>
     <div id="msg-layer" hidden>
         <p id="msg-text"></p>
     </div>
@@ -172,12 +152,10 @@
         <div class=" vk vk-hide" style="background-color: transparent !important" data-k="dl"></div>
         <div class=" vk vk-hide" style="background-color: transparent !important" data-k="dr"></div>
     </div>
-    <canvas width="240" height="160" id="gba-canvas" style=""></canvas>
+    <canvas width="240" height="160" id="gba-canvas" style="image-rendering: pixelated;"></canvas>
     <script src="localforage.js"></script>
+    <script src="44gba.js"></script>
     <script src="app.js"></script>
-    <script src="build/44gba.js"></script>
-    
-
 </body>
 
 </html>

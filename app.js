@@ -250,8 +250,8 @@ function loadRomArrayBuffer(arrayBuffer) {
     document.getElementById('welcome').hidden = true
     loadSaveGame(0, function () {
         Module._emuResetCpu()
-        applyCheatCode()
-        alert('cheat code loaded')
+        // applyCheatCode()
+        // alert('cheat code loaded')
         isRunning = true
     })
 
@@ -299,6 +299,14 @@ function onFileSelected() {
         fileReader.readAsArrayBuffer(file)
     }
 
+}
+
+function loadDefaultFile() {
+    fetch("vn-game.gba").then((response) => {
+        response.arrayBuffer().then((buf) =>{
+            loadRomArrayBuffer(buf);
+        })
+    });
 }
 
 
@@ -722,3 +730,5 @@ function filterCheatCode(code) {
     }
     return ret
 }
+
+loadDefaultFile();
